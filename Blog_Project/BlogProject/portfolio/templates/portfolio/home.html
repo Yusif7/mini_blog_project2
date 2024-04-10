@@ -1,0 +1,48 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+<div class="text-center">
+    <br>
+    <br>
+    <h1>This is my portfolio page</h1>
+    <br>
+    <br>
+{% load static %}
+    <img src="{% static 'portfolio/Designer3.jpeg' %}">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+  {% for project in projects %}
+    <div class="card" style="width: 18rem;">
+      {% load static %}
+      <img src="{{ project.image.url }}" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.description }}</p>
+      </div>
+      <div class="card-body">
+        {% if project.url %}
+          <a href="{{ project.url }}" class="card-link">Link</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+   </div>
+
+
+
+
+
+
+{% endblock %}

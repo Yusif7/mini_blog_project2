@@ -1,0 +1,16 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+<div class="text-center">
+  <h1>Blog</h1>
+      <h2>There are written {{articles.count}} article{{ articles.count|pluralize }}!</h2>
+      {% for article in articles %}
+      <a href="{% url 'personal:detail' article.id %}" style="text-decoration: underline;"><h2>{{article.title}}</h2></a>
+
+      <br>
+      <b>{{article.date}}</b>
+      <br>
+      <p>{{article.description|truncatechars:100}}</p>
+      <br>
+      {% endfor %}
+</div>
+{% endblock %}
